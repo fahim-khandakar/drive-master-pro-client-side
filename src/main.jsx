@@ -9,6 +9,8 @@ import MyCart from "./Components/MyCart/MyCart";
 import LogIn from "./Components/LogIn/LogIn";
 import Register from "./Components/Register/Register";
 import BrandDetails from "./Components/BrandDetails/BrandDetails";
+import CarDetails from "./Components/CarDetails/CarDetails";
+import UpdateCar from "./Components/UpdateCar/UpdateCar";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,18 @@ const router = createBrowserRouter([
         path: "/brandDetails/:id",
         element: <BrandDetails></BrandDetails>,
         loader: () => fetch("/brand.json"),
+      },
+      {
+        path: "/carDetails/:id",
+        element: <CarDetails></CarDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/carDetails/${params.id}`),
+      },
+      {
+        path: "/updateCar/:id",
+        element: <UpdateCar></UpdateCar>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/carDetails/${params.id}`),
       },
     ],
   },

@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 
-const AddProduct = () => {
-  const [brandName, setBrandName] = useState("Toyota");
+const UpdateCar = () => {
+  const loadedData = useLoaderData();
+  const [brandName, setBrandName] = useState();
+
+  const { id } = useParams();
+  console.log(loadedData);
   const handleBrandName = (e) => {
     setBrandName(e.target.value);
   };
@@ -24,10 +29,8 @@ const AddProduct = () => {
       description,
       rating,
     };
-    console.log(product);
-    // post server
-    fetch("http://localhost:5000/brandInfo", {
-      method: "POST",
+    fetch(`http://localhost:5000/updateCar/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -36,14 +39,13 @@ const AddProduct = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        form.reset();
       });
   };
   return (
     <div className="max-w-6xl mx-auto p-5 md:p-0 mt-32">
       <div>
         <h2 className="text-2xl md:text-4xl font-bold font-serif text-center">
-          Add Product
+          Update Product
         </h2>
         <form
           onSubmit={handleAddProduct}
@@ -54,6 +56,7 @@ const AddProduct = () => {
               <span className="label-text">Photo URL</span>
             </label>
             <input
+              defaultValue={loadedData.photo}
               type="text"
               name="photo"
               placeholder="Photo URL"
@@ -67,6 +70,7 @@ const AddProduct = () => {
               <span className="label-text">Name</span>
             </label>
             <input
+              defaultValue={loadedData.name}
               type="text"
               name="name"
               placeholder="Name"
@@ -79,7 +83,7 @@ const AddProduct = () => {
               <span className="label-text">Brand Name</span>
             </label>
             <select
-              value={brandName}
+              value={loadedData.brandName ? loadedData.brandName : "Toyota"}
               className="input input-bordered"
               onChange={handleBrandName}
             >
@@ -90,19 +94,13 @@ const AddProduct = () => {
               <option value="Tesla">Tesla</option>
               <option value="Honda">Honda</option>
             </select>
-            {/* <input
-              type="text"
-              name="brandName"
-              placeholder="Brand Name"
-              className="input input-bordered"
-              required
-            /> */}
           </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Product Type</span>
             </label>
             <input
+              defaultValue={loadedData.productType}
               type="text"
               name="productType"
               placeholder="Product Type"
@@ -115,6 +113,7 @@ const AddProduct = () => {
               <span className="label-text">Price</span>
             </label>
             <input
+              defaultValue={loadedData.price}
               type="text"
               name="price"
               placeholder="Price"
@@ -127,6 +126,7 @@ const AddProduct = () => {
               <span className="label-text">Description</span>
             </label>
             <textarea
+              defaultValue={loadedData.description}
               name="description"
               placeholder="Description"
               className="input input-bordered py-[10px]"
@@ -140,6 +140,7 @@ const AddProduct = () => {
               <span className="label-text">Rating</span>
             </label>
             <input
+              defaultValue={loadedData.rating}
               type="number"
               name="rating"
               placeholder="(from 1 to 5)"
@@ -152,7 +153,7 @@ const AddProduct = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn bg-[#ffa500]">Add Product</button>
+            <button className="btn bg-[#ffa500]">Update Product</button>
           </div>
         </form>
       </div>
@@ -160,4 +161,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default UpdateCar;

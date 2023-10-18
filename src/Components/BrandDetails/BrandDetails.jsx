@@ -8,14 +8,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
+import Cars from "../Cars/Cars";
 
 const BrandDetails = () => {
+  const [cars, setCars] = useState([]);
   const loadedData = useLoaderData();
   const { id } = useParams();
-
   const photoData = loadedData.find((data) => data.carBrand === id);
-  //   const data = photoData;
-  console.log(photoData);
+  useEffect(() => {
+    fetch(`http://localhost:5000/brandInfo/${photoData.carBrand}`)
+      .then((res) => res.json())
+      .then((data) => setCars(data));
+  }, []);
+
   return (
     <div>
       <div>
@@ -97,6 +103,11 @@ const BrandDetails = () => {
             </div>
           </SwiperSlide>
         </Swiper>
+      </div>
+      <div className="max-w-6xl mx-auto px-5 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-10 mt-32">
+        {cars.map((car) => (
+          <Cars key={car._id} car={car}></Cars>
+        ))}
       </div>
     </div>
   );
