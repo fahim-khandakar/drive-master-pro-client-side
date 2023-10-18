@@ -3,9 +3,23 @@ import logo from "../../assets/download.png";
 import "./Navbar.css";
 import { useEffect, useState } from "react";
 const Navbar = () => {
+  const [brands, setBrands] = useState([]);
+  const brand = brands.map((data) => data.carBrand);
+  useEffect(() => {
+    fetch("/brand.json")
+      .then((res) => res.json())
+      .then((data) => setBrands(data));
+  }, []);
   const location = useLocation();
   const [scrolling, setScrolling] = useState(false);
-  const isHome = location.pathname === "/";
+  const isHome =
+    location.pathname === "/" ||
+    location.pathname === `/brandDetails/${brand[0]}` ||
+    location.pathname === `/brandDetails/${brand[1]}` ||
+    location.pathname === `/brandDetails/${brand[2]}` ||
+    location.pathname === `/brandDetails/${brand[3]}` ||
+    location.pathname === `/brandDetails/${brand[4]}` ||
+    location.pathname === `/brandDetails/${brand[5]}`;
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -40,9 +54,9 @@ const Navbar = () => {
         scrolling || !isHome
           ? "bg-white text-[#403f3f] shadow-md"
           : "bg-transparent text-white"
-      } transition-all text-[#403f3f]   duration-500 ease-in-out fixed w-full top-0 z-10  `}
+      } transition-all    duration-500 ease-in-out fixed w-full top-0 z-10  `}
     >
-      <div className="navbar mx-auto max-w-6xl p-5 md:p-0">
+      <div className="navbar mx-auto max-w-6xl px-5 md:p-0">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className=" lg:hidden">
