@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "carBrand": "Toyota",
+    "imgUrl": "https://i.ibb.co/Q8mXJ6f/Toyota-logo-25-BC276-E4-D-seeklogo-com-removebg-preview.png"
+  },
+  {
+    "id": 2,
+    "carBrand": "Ford",
+    "imgUrl": "https://i.ibb.co/xhmtF4N/567-ford-removebg-preview.png"
+  },
+  {
+    "id": 3,
+    "carBrand": "BMW",
+    "imgUrl": "https://i.ibb.co/Tkqctpb/BMW-svg-removebg-preview.png"
+  },
+  {
+    "id": 4,
+    "carBrand": "Mercedes-Benz",
+    "imgUrl": "https://i.ibb.co/w0qCbTF/download-removebg-preview.png"
+  },
+  {
+    "id": 5,
+    "carBrand": "Tesla",
+    "imgUrl": "https://i.ibb.co/dpsNpsc/tesla-logo-free-download-free-vector-removebg-preview.png"
+  },
+  {
+    "id": 6,
+    "carBrand": "Honda",
+    "imgUrl": "https://i.ibb.co/xGpDzgD/2560px-Honda-svg-removebg-preview.png"
+  }
+]

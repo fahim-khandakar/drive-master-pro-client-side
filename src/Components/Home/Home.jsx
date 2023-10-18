@@ -5,11 +5,13 @@ import MobileApp from "../MobileApp/MobileApp";
 
 const Home = () => {
   return (
-    <div className="mx-auto max-w-6xl px-5 md:px-0">
+    <div>
       <Banner></Banner>
-      <BrandsCard></BrandsCard>
-      <BestServices></BestServices>
-      <MobileApp></MobileApp>
+      <div className="mx-auto max-w-6xl px-5 md:px-0">
+        <BrandsCard></BrandsCard>
+        <BestServices></BestServices>
+        <MobileApp></MobileApp>
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   return (
-    <div className="max-w-6xl mx-auto p-5 md:p-0 mt-10">
+    <div className="max-w-6xl mx-auto p-5 md:p-0 mt-32">
       <div>
         <h2 className="text-2xl md:text-4xl font-bold font-serif text-center">
           Please Register
