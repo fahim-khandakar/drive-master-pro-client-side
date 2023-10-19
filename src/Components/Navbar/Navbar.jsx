@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/download.png";
+import swal from "sweetalert";
 import "./Navbar.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -9,7 +10,9 @@ const Navbar = () => {
   const [brands, setBrands] = useState([]);
   const brand = brands.map((data) => data.carBrand);
   const signOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then(() => swal("Successfully!", "You Are Log Out", "success"))
+      .catch(() => swal("Opps!", "Something went wrong", "success"));
   };
   useEffect(() => {
     fetch("/brand.json")
@@ -97,19 +100,6 @@ const Navbar = () => {
           <ul className="gap-10 menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
-          {/* <Profile></Profile>
-
-          <div>
-            {user ? (
-              <li className="list-none md:btn text-xs md:text-base md:btn-ghost">
-                <button onClick={signOut}>Sign Out</button>
-              </li>
-            ) : (
-              <li className="list-none md:btn md:btn-ghost text-xs md:text-base">
-                <NavLink to="/login">Login</NavLink>
-              </li>
-            )}
-          </div> */}
           {user ? (
             <details>
               <summary
@@ -121,16 +111,10 @@ const Navbar = () => {
               >
                 <Profile></Profile>
               </summary>
-              <ul className="p-2 absolute shadow menu dropdown-content z-[1] bg-slate-600 rounded-box w-32 md:w-40">
-                {user ? (
-                  <li className="list-none md:btn text-xs md:text-base md:btn-ghost">
-                    <button onClick={signOut}>Sign Out</button>
-                  </li>
-                ) : (
-                  <li className="list-none md:btn md:btn-ghost text-xs md:text-base">
-                    <NavLink to="/login">Login</NavLink>
-                  </li>
-                )}
+              <ul className="p-2 absolute shadow menu dropdown-content z-[1] bg-white text-black rounded-box w-32 md:w-40">
+                <li className="list-none mx-auto rounded-md  text-xs md:text-base md:btn-ghost">
+                  <button onClick={signOut}>Sign Out</button>
+                </li>
               </ul>
             </details>
           ) : (

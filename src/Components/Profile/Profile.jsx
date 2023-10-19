@@ -4,7 +4,6 @@ import profile from "../../assets/user.png";
 
 const Profile = () => {
   const { user, name } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <div>

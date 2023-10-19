@@ -11,7 +11,6 @@ const MyCart = () => {
       .then((data) => setData(data));
   }, []);
 
-  console.log(data);
   return (
     <div className="mt-28 max-w-6xl mx-auto px-5 md:px-0">
       {data.map((item) => (

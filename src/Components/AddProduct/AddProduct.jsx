@@ -24,7 +24,6 @@ const AddProduct = () => {
       description,
       rating,
     };
-    console.log(product);
     // post server
     fetch("http://localhost:5000/brandInfo", {
       method: "POST",
@@ -35,8 +34,12 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        form.reset();
+        if (data.InsertedId > 0) {
+          swal("Great!", "Successfully added this product", "success");
+          form.reset();
+        } else {
+          swal("Sorry!", "Something went wrong", "error");
+        }
       });
   };
   return (

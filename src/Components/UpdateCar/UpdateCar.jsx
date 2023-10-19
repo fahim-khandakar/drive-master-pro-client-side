@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 const UpdateCar = () => {
   const loadedData = useLoaderData();
   const [brandName, setBrandName] = useState();
 
   const { id } = useParams();
-  console.log(loadedData);
   const handleBrandName = (e) => {
     setBrandName(e.target.value);
   };
@@ -38,7 +38,11 @@ const UpdateCar = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.modifiedCount > 0) {
+          swal("Congratulations!", "You Are Successfully Updated", "success");
+        } else {
+          swal("Opps!", "You are failed to update", "error");
+        }
       });
   };
   return (

@@ -12,6 +12,7 @@ import BrandDetails from "./Components/BrandDetails/BrandDetails";
 import CarDetails from "./Components/CarDetails/CarDetails";
 import UpdateCar from "./Components/UpdateCar/UpdateCar";
 import AuthProvider from "./Components/Provider/AuthProvider";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,11 +25,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myCart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
         // loader: () => fetch("http://localhost:5000/cartList"),
       },
       {
@@ -46,13 +55,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/carDetails/:id",
-        element: <CarDetails></CarDetails>,
+        element: (
+          <PrivateRoute>
+            <CarDetails></CarDetails>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/carDetails/${params.id}`),
       },
       {
         path: "/updateCar/:id",
-        element: <UpdateCar></UpdateCar>,
+        element: (
+          <PrivateRoute>
+            <UpdateCar></UpdateCar>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/carDetails/${params.id}`),
       },

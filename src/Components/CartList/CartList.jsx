@@ -9,10 +9,12 @@ const CartList = ({ item, data, setData }) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.deletedCount > 0) {
           const remaining = data.filter((prod) => prod._id !== _id);
           setData(remaining);
+          swal("Delete!", "You deleted this cart.", "success");
+        } else {
+          swal("Ohho..!", "Something is wrong", "error");
         }
       });
   };
@@ -20,7 +22,7 @@ const CartList = ({ item, data, setData }) => {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-0 mb-5">
       <div className="w-full  flex items-center gap-5  text-lg md:text-2xl font-semibold justify-center">
-        <div className=" w-[50px] md:w-[100px]">
+        <div className=" w-[80px] md:w-[100px]">
           <img className="rounded-md" src={photo} alt="" />
         </div>
         <h1>
