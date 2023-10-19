@@ -4,7 +4,18 @@ const CarDetails = () => {
   const loadedData = useLoaderData();
   const { photo, name, brandName, productType, price, description, rating } =
     loadedData;
-  console.log(loadedData);
+  const handleAddCart = () => {
+    fetch("http://localhost:5000/cartList", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(loadedData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    console.log(loadedData);
+  };
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-0">
       <div>
@@ -15,7 +26,10 @@ const CarDetails = () => {
             alt=""
           />
           <div className=" w-full  bg-[#00000070] top-[430px] rounded-b-lg max-w-6xl mx-auto absolute left-0  right-0 bottom-0 h-[70px]     ">
-            <button className=" mt-3 ml-5 btn py-2 px-5   rounded-lg font-bold">
+            <button
+              onClick={handleAddCart}
+              className=" mt-3 ml-5 btn py-2 px-5   rounded-lg font-bold"
+            >
               Add To Cart
             </button>
           </div>

@@ -20,7 +20,7 @@ const BrandDetails = () => {
     fetch(`http://localhost:5000/brandInfo/${photoData.carBrand}`)
       .then((res) => res.json())
       .then((data) => setCars(data));
-  }, []);
+  }, [photoData.carBrand]);
 
   return (
     <div>
