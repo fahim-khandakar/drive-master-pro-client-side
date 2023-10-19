@@ -34,7 +34,7 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.InsertedId > 0) {
+        if (data.acknowledged === true) {
           swal("Great!", "Successfully added this product", "success");
           form.reset();
         } else {
@@ -93,13 +93,6 @@ const AddProduct = () => {
               <option value="Tesla">Tesla</option>
               <option value="Honda">Honda</option>
             </select>
-            {/* <input
-              type="text"
-              name="brandName"
-              placeholder="Brand Name"
-              className="input input-bordered"
-              required
-            /> */}
           </div>
           <div className="form-control">
             <label className="label">

@@ -4,7 +4,7 @@ import swal from "sweetalert";
 
 const UpdateCar = () => {
   const loadedData = useLoaderData();
-  const [brandName, setBrandName] = useState();
+  const [brandName, setBrandName] = useState(loadedData.brandName);
 
   const { id } = useParams();
   const handleBrandName = (e) => {
@@ -30,7 +30,7 @@ const UpdateCar = () => {
       rating,
     };
     fetch(`https://drive-master-pro-server.vercel.app/updateCar/${id}`, {
-      method: "PUT",
+      method: "patch",
       headers: {
         "content-type": "application/json",
       },
@@ -87,7 +87,7 @@ const UpdateCar = () => {
               <span className="label-text">Brand Name</span>
             </label>
             <select
-              value={loadedData.brandName ? loadedData.brandName : "Toyota"}
+              value={brandName}
               className="input input-bordered"
               onChange={handleBrandName}
             >

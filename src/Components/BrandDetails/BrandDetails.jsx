@@ -27,7 +27,6 @@ const BrandDetails = () => {
           setError(
             "We're sorry, but the product information you are looking for is currently not available. This may be due to various reasons, such as updates, maintenance, or an issue with our data sources."
           );
-          console.log(cars.length, error);
         } else {
           setCars(data);
         }
@@ -62,13 +61,9 @@ const BrandDetails = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                   <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">
-                      Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                      assumenda excepturi exercitationem quasi. In deleniti
-                      eaque aut repudiandae et a id nisi.
-                    </p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <h1 className="mb-5 text-5xl font-bold">
+                      Explore Our Premier Collection of Cars!
+                    </h1>
                   </div>
                 </div>
               </div>
@@ -83,13 +78,9 @@ const BrandDetails = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                   <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">
-                      Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                      assumenda excepturi exercitationem quasi. In deleniti
-                      eaque aut repudiandae et a id nisi.
-                    </p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <h1 className="mb-5 text-5xl font-bold">
+                      Browse Our Wide Range of Quality Cars
+                    </h1>
                   </div>
                 </div>
               </div>
@@ -104,13 +95,9 @@ const BrandDetails = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                   <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">
-                      Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                      assumenda excepturi exercitationem quasi. In deleniti
-                      eaque aut repudiandae et a id nisi.
-                    </p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <h1 className="mb-5 text-5xl font-bold">
+                      Your Road to the Perfect Vehicle
+                    </h1>
                   </div>
                 </div>
               </div>
