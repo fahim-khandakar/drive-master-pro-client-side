@@ -30,7 +30,7 @@ const UpdateCar = () => {
       rating,
     };
     fetch(`https://drive-master-pro-server.vercel.app/updateCar/${id}`, {
-      method: "patch",
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
