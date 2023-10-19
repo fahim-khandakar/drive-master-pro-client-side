@@ -13,11 +13,13 @@ import CarDetails from "./Components/CarDetails/CarDetails";
 import UpdateCar from "./Components/UpdateCar/UpdateCar";
 import AuthProvider from "./Components/Provider/AuthProvider";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import Error from "./Components/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainRoot></MainRoot>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -38,7 +40,6 @@ const router = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        // loader: () => fetch("http://localhost:5000/cartList"),
       },
       {
         path: "/login",

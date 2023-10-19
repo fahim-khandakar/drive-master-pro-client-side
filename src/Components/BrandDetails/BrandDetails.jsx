@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import "./BrandDetails.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,96 +13,115 @@ import Cars from "../Cars/Cars";
 
 const BrandDetails = () => {
   const [cars, setCars] = useState([]);
+  const [error, setError] = useState();
   const loadedData = useLoaderData();
   const { id } = useParams();
   const photoData = loadedData.find((data) => data.carBrand === id);
   useEffect(() => {
     fetch(`http://localhost:5000/brandInfo/${photoData.carBrand}`)
       .then((res) => res.json())
-      .then((data) => setCars(data));
-  }, [photoData.carBrand]);
+      .then((data) => {
+        if (!data.length > 0) {
+          setError(
+            "We're sorry, but the product information you are looking for is currently not available. This may be due to various reasons, such as updates, maintenance, or an issue with our data sources."
+          );
+          console.log(cars.length, error);
+        } else {
+          setCars(data);
+        }
+      });
+  }, [error, photoData.carBrand]);
 
   return (
     <div>
       <div>
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
-        >
-          <SwiperSlide>
-            <div
-              className="hero min-h-screen"
-              style={{
-                backgroundImage: `url(${photoData.img1})`,
-              }}
-            >
-              <div className="hero-overlay bg-opacity-60"></div>
-              <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                  <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
-                  </p>
-                  <button className="btn btn-primary">Get Started</button>
+        {cars.length > 0 ? (
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <div
+                className="hero min-h-screen"
+                style={{
+                  backgroundImage: `url(${photoData.img1})`,
+                }}
+              >
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                  <div className="max-w-md">
+                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                    <p className="mb-5">
+                      Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                      assumenda excepturi exercitationem quasi. In deleniti
+                      eaque aut repudiandae et a id nisi.
+                    </p>
+                    <button className="btn btn-primary">Get Started</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div
-              className="hero min-h-screen"
-              style={{
-                backgroundImage: `url(${photoData.img2})`,
-              }}
-            >
-              <div className="hero-overlay bg-opacity-60"></div>
-              <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                  <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
-                  </p>
-                  <button className="btn btn-primary">Get Started</button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="hero min-h-screen"
+                style={{
+                  backgroundImage: `url(${photoData.img2})`,
+                }}
+              >
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                  <div className="max-w-md">
+                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                    <p className="mb-5">
+                      Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                      assumenda excepturi exercitationem quasi. In deleniti
+                      eaque aut repudiandae et a id nisi.
+                    </p>
+                    <button className="btn btn-primary">Get Started</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div
-              className="hero min-h-screen"
-              style={{
-                backgroundImage: `url(${photoData.img3})`,
-              }}
-            >
-              <div className="hero-overlay bg-opacity-60"></div>
-              <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                  <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
-                  </p>
-                  <button className="btn btn-primary">Get Started</button>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div
+                className="hero min-h-screen"
+                style={{
+                  backgroundImage: `url(${photoData.img3})`,
+                }}
+              >
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                  <div className="max-w-md">
+                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                    <p className="mb-5">
+                      Provident cupiditate voluptatem et in. Quaerat fugiat ut
+                      assumenda excepturi exercitationem quasi. In deleniti
+                      eaque aut repudiandae et a id nisi.
+                    </p>
+                    <button className="btn btn-primary">Get Started</button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        </Swiper>
+            </SwiperSlide>
+          </Swiper>
+        ) : (
+          <div className="max-w-6xl mx-auto px-5 md:p-0 flex flex-col justify-center items-center min-h-screen text-center md:text-3xl  text-lg">
+            <h1>{error}</h1>
+            <Link to="/">
+              <button className="btn btn-ghost mt-16">Back To Home</button>
+            </Link>
+          </div>
+        )}
       </div>
       <div className="max-w-6xl mx-auto px-5 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-10 mt-32">
         {cars.map((car) => (
