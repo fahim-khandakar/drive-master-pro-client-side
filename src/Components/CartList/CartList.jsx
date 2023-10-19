@@ -4,7 +4,7 @@ const CartList = ({ item, data, setData }) => {
   const { _id, photo, name, brandName, productType, price, rating } = item;
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/cartList/${id}`, {
+    fetch(`https://drive-master-pro-server.vercel.app/cartList/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

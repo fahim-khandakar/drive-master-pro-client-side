@@ -62,7 +62,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/carDetails/${params.id}`),
+          fetch(
+            `https://drive-master-pro-server.vercel.app/carDetails/${params.id}`
+          ),
       },
       {
         path: "/updateCar/:id",
@@ -72,7 +74,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/carDetails/${params.id}`),
+          fetch(
+            `https://drive-master-pro-server.vercel.app/carDetails/${params.id}`
+          ),
       },
     ],
   },

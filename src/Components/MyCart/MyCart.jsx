@@ -6,7 +6,7 @@ const MyCart = () => {
   // const loadedData = useLoaderData();
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/cartList")
+    fetch("https://drive-master-pro-server.vercel.app/cartList")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

@@ -25,7 +25,7 @@ const AddProduct = () => {
       rating,
     };
     // post server
-    fetch("http://localhost:5000/brandInfo", {
+    fetch("https://drive-master-pro-server.vercel.app/brandInfo", {
       method: "POST",
       headers: {
         "content-type": "application/json",

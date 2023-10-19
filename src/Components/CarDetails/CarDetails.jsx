@@ -7,7 +7,7 @@ const CarDetails = () => {
   const { photo, name, brandName, productType, price, description, rating } =
     loadedData;
   useEffect(() => {
-    fetch("http://localhost:5000/cartList")
+    fetch("https://drive-master-pro-server.vercel.app/cartList")
       .then((res) => res.json())
       .then((data) => setCartList(data));
   }, []);
@@ -17,7 +17,7 @@ const CarDetails = () => {
   const handleAddCart = () => {
     const checkList = cartList.find((cart) => cart._id === loadedData._id);
     if (!checkList) {
-      fetch("http://localhost:5000/cartList", {
+      fetch("https://drive-master-pro-server.vercel.app/cartList", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -36,7 +36,7 @@ const CarDetails = () => {
       swal("Sorry!", "You have already added this product", "error");
     }
   };
-  // fetch("http://localhost:5000/cartList", {
+  // fetch("https://drive-master-pro-server.vercel.app/cartList", {
   //       method: "POST",
   //       headers: {
   //         "content-type": "application/json",

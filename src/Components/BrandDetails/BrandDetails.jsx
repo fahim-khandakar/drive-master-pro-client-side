@@ -18,7 +18,9 @@ const BrandDetails = () => {
   const { id } = useParams();
   const photoData = loadedData.find((data) => data.carBrand === id);
   useEffect(() => {
-    fetch(`http://localhost:5000/brandInfo/${photoData.carBrand}`)
+    fetch(
+      `https://drive-master-pro-server.vercel.app/brandInfo/${photoData.carBrand}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (!data.length > 0) {
