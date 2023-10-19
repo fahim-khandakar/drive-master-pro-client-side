@@ -11,6 +11,7 @@ import Register from "./Components/Register/Register";
 import BrandDetails from "./Components/BrandDetails/BrandDetails";
 import CarDetails from "./Components/CarDetails/CarDetails";
 import UpdateCar from "./Components/UpdateCar/UpdateCar";
+import AuthProvider from "./Components/Provider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

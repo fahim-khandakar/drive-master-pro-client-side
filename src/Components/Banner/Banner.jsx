@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div
-      className="hero h-[300px] md:min-h-screen"
+      className="hero h-[350px] md:min-h-screen"
       style={{
         backgroundPosition: "cover",
         backgroundImage:

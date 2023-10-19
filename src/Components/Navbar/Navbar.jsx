@@ -1,10 +1,16 @@
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/download.png";
 import "./Navbar.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import Profile from "../Profile/Profile";
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [brands, setBrands] = useState([]);
   const brand = brands.map((data) => data.carBrand);
+  const signOut = () => {
+    logOut().then().catch();
+  };
   useEffect(() => {
     fetch("/brand.json")
       .then((res) => res.json())
@@ -91,12 +97,47 @@ const Navbar = () => {
           <ul className="gap-10 menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
-          {/* profile pic set here  */}
+          {/* <Profile></Profile>
+
           <div>
-            <li className="list-none">
+            {user ? (
+              <li className="list-none md:btn text-xs md:text-base md:btn-ghost">
+                <button onClick={signOut}>Sign Out</button>
+              </li>
+            ) : (
+              <li className="list-none md:btn md:btn-ghost text-xs md:text-base">
+                <NavLink to="/login">Login</NavLink>
+              </li>
+            )}
+          </div> */}
+          {user ? (
+            <details>
+              <summary
+                style={{
+                  cursor: "pointer",
+                  outline: "none",
+                  listStyleType: "none",
+                }}
+              >
+                <Profile></Profile>
+              </summary>
+              <ul className="p-2 absolute shadow menu dropdown-content z-[1] bg-slate-600 rounded-box w-32 md:w-40">
+                {user ? (
+                  <li className="list-none md:btn text-xs md:text-base md:btn-ghost">
+                    <button onClick={signOut}>Sign Out</button>
+                  </li>
+                ) : (
+                  <li className="list-none md:btn md:btn-ghost text-xs md:text-base">
+                    <NavLink to="/login">Login</NavLink>
+                  </li>
+                )}
+              </ul>
+            </details>
+          ) : (
+            <li className="list-none md:btn md:btn-ghost text-xs md:text-base">
               <NavLink to="/login">Login</NavLink>
             </li>
-          </div>
+          )}
         </div>
       </div>
     </div>
