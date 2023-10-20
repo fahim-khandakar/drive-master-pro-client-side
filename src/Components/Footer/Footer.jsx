@@ -13,12 +13,8 @@ const Footer = () => {
         </aside>
         <nav>
           <header className="footer-title">Services</header>
-          <a className="link link-hover">Wedding</a>
-          <a className="link link-hover">Birthday Party</a>
-          <a className="link link-hover">Anniversary</a>
-          <a className="link link-hover">Engagement Party</a>
-          <a className="link link-hover">Retirement Party</a>
-          <a className="link link-hover">Baby Shower</a>
+          <a className="link link-hover">Car Wash</a>
+          <a className="link link-hover">Car Service</a>
         </nav>
         <nav>
           <header className="footer-title">Company</header>

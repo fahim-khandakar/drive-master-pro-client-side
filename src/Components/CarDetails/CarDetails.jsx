@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const CarDetails = () => {
+  const { user } = useContext(AuthContext);
+  const email = user.email;
   const loadedData = useLoaderData();
+  const data = { ...loadedData, email };
   const [cartList, setCartList] = useState([]);
   const { photo, name, brandName, productType, price, description, rating } =
     loadedData;
@@ -11,18 +15,16 @@ const CarDetails = () => {
       .then((res) => res.json())
       .then((data) => setCartList(data));
   }, []);
-  // const checkList = cartList.map((cart) => cart._id === loadedData._id);
-  // console.log(checkList.length);
-  // console.log(loadedData._id);
+
   const handleAddCart = () => {
-    const checkList = cartList.find((cart) => cart._id === loadedData._id);
+    const checkList = cartList.find((cart) => cart.email === loadedData.email);
     if (!checkList) {
       fetch("https://drive-master-pro-server.vercel.app/cartList", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(loadedData),
+        body: JSON.stringify(data),
       })
         .then((res) => res.json())
         .then((data) => {
