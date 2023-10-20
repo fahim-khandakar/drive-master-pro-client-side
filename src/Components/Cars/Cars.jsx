@@ -14,7 +14,7 @@ const Cars = ({ car }) => {
   } = car;
   return (
     <div>
-      <div className="flex justify-center items-center gap-5 bg-slate-200 p-5 rounded-lg h-72">
+      <div className="flex justify-center items-center gap-5 bg-slate-200 p-5 rounded-lg h-[350px]">
         <div className="w-1/2 h-[150px] ">
           <img className="w-full h-full rounded-md" src={photo} alt="" />
         </div>

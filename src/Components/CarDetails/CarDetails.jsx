@@ -46,7 +46,7 @@ const CarDetails = () => {
             src={photo}
             alt=""
           />
-          <div className=" w-full  bg-[#00000070] top-[430px] rounded-b-lg max-w-6xl mx-auto absolute left-0  right-0 bottom-0 h-[70px]     ">
+          <div className=" w-full  md:bg-[#00000070] top-[430px] rounded-b-lg max-w-6xl mx-auto absolute left-0  right-0 bottom-0 h-[70px]     ">
             <button
               onClick={handleAddCart}
               className=" mt-3 ml-5 btn py-2 px-5   rounded-lg font-bold"
