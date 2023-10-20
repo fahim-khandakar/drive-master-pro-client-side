@@ -1,8 +1,13 @@
-# React + Vite
+# Social Fiesta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Live Link:](https://drive-master-pro-f36e6.web.app/)
 
-Currently, two official plugins are available:
+[https://drive-master-pro-f36e6.web.app/](https://drive-master-pro-f36e6.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Website feature
+
+- You can create an account on this website.
+- You can see various cars on this website.
+- By creating an account, you gain access to two additional routes: 'Add Product' and 'My Cart'.
+- Our website is designed to be mobile-responsive for easy access on mobile devices.
+- Upon successful registration , login, add product, add cart, you will receive a sweet alert confirming your success.
