@@ -2,7 +2,7 @@
   {
     "id": 1,
     "carBrand": "Toyota",
-    "imgUrl": "https://i.ibb.co/Q8mXJ6f/Toyota-logo-25-BC276-E4-D-seeklogo-com-removebg-preview.png",
+    "imgUrl": "https://i.ibb.co/7RtqvcP/emblem-ogp-001-removebg-preview.png",
     "img1": "https://i.ibb.co/sJ6JmsZ/brahan-milla-Yg-At-HLa-YHy-U-unsplash.jpg",
     "img2": "https://i.ibb.co/28Tj14w/matthew-sichkaruk-QUHRL5-Z-1e-A-unsplash.jpg",
     "img3": "https://i.ibb.co/g75Gvs4/xavier-rabasa-zb-Z-EJJ4-To-unsplash.jpg"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "carBrand": "Ford",
-    "imgUrl": "https://i.ibb.co/xhmtF4N/567-ford-removebg-preview.png",
+    "imgUrl": "https://i.ibb.co/Tg1yP2d/Ford-Motor-Company-Logo-removebg-preview.png",
     "img1": "https://i.ibb.co/4Zyf2jk/andre-tan-l-Rr-Nccxr-Tf-Q-unsplash.jpg",
     "img2": "https://i.ibb.co/V9h6pwR/slade-lapusnak-z-3l-Zf-Fdsj0-unsplash.jpg",
     "img3": "https://i.ibb.co/d71nDB9/ryking-uploads-c-CLFRT4-Uw-Q-unsplash.jpg"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "carBrand": "Mercedes",
-    "imgUrl": "https://i.ibb.co/w0qCbTF/download-removebg-preview.png",
+    "imgUrl": "https://i.ibb.co/yPJYttZ/Mercedes-Logo-svg-removebg-preview.png",
     "img1": "https://i.ibb.co/T8W8nWg/samuele-errico-piccarini-FMb-WFDi-VRPs-unsplash.jpg",
     "img2": "https://i.ibb.co/hXd2sqX/jakob-rosen-W7-HOXq-Ek-JUw-unsplash.jpg",
     "img3": "https://i.ibb.co/vcHv3KQ/oguz-yagiz-kara-I-Q9k-Kf2-Mv-U-unsplash.jpg"
@@ -34,7 +34,7 @@
   {
     "id": 5,
     "carBrand": "Tesla",
-    "imgUrl": "https://i.ibb.co/dpsNpsc/tesla-logo-free-download-free-vector-removebg-preview.png",
+    "imgUrl": "https://i.ibb.co/YT5956h/download-removebg-preview.png",
     "img1": "https://i.ibb.co/Wc3xY7Q/tech-nick-k-PUQOsf-Thag-unsplash.jpg",
     "img2": "https://i.ibb.co/fCT9797/aaron-huber-8q-YE6-LGHW-c-unsplash.jpg",
     "img3": "https://i.ibb.co/Y359rr4/screen-post-A-JEMot0h-Ws-unsplash.jpg"
@@ -42,6 +42,6 @@
   {
     "id": 6,
     "carBrand": "Honda",
-    "imgUrl": "https://i.ibb.co/xGpDzgD/2560px-Honda-svg-removebg-preview.png"
+    "imgUrl": "https://i.ibb.co/7RT9g84/honda-logo-icon-181334-removebg-preview.png"
   }
 ]

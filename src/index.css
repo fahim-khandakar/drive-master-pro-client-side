@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --text: #0a0a0a;
+  --body: #d3c6c6;
+  --title: #ffffff9f;
+}
+
+.dark-mode {
+  --bg: #0a0a0a;
+  --text: #ffffff;
+  --body: #313030;
+  --title: #0a0a0a9f;
+}

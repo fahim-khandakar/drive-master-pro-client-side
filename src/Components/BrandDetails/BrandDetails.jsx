@@ -15,28 +15,44 @@ const BrandDetails = () => {
   const [cars, setCars] = useState([]);
   const [error, setError] = useState();
   const loadedData = useLoaderData();
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const photoData = loadedData.find((data) => data.carBrand === id);
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://drive-master-pro-server.vercel.app/brandInfo/${photoData.carBrand}`
     )
       .then((res) => res.json())
       .then((data) => {
-        if (!data.length > 0) {
-          setError(
-            "We're sorry, but the product information you are looking for is currently not available. This may be due to various reasons, such as updates, maintenance, or an issue with our data sources."
-          );
-        } else {
-          setCars(data);
-        }
+        setTimeout(() => {
+          if (!data.length > 0) {
+            setError(
+              "We're sorry, but the product information you are looking for is currently not available. This may be due to various reasons, such as updates, maintenance, or an issue with our data sources."
+            );
+          } else {
+            setCars(data);
+          }
+          setLoading(false);
+        }, 2000);
       });
   }, [error, photoData.carBrand]);
 
   return (
     <div>
       <div>
-        {cars.length > 0 ? (
+        {loading ? (
+          <div className="flex justify-center h-screen items-center">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        ) : error ? (
+          <div className="max-w-6xl mx-auto px-5 md:p-0 flex flex-col justify-center items-center min-h-screen text-center md:text-3xl  text-lg">
+            <h1>{error}</h1>
+            <Link to="/">
+              <button className="btn btn-ghost mt-16">Back To Home</button>
+            </Link>
+          </div>
+        ) : (
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -103,13 +119,6 @@ const BrandDetails = () => {
               </div>
             </SwiperSlide>
           </Swiper>
-        ) : (
-          <div className="max-w-6xl mx-auto px-5 md:p-0 flex flex-col justify-center items-center min-h-screen text-center md:text-3xl  text-lg">
-            <h1>{error}</h1>
-            <Link to="/">
-              <button className="btn btn-ghost mt-16">Back To Home</button>
-            </Link>
-          </div>
         )}
       </div>
       <div className="max-w-6xl mx-auto px-5 md:px-0 grid grid-cols-1 md:grid-cols-2 gap-10 mt-32">

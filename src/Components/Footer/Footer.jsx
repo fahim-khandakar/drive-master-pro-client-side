@@ -1,8 +1,8 @@
 import logo from "../../assets/download.png";
 const Footer = () => {
   return (
-    <div className="bg-base-200">
-      <footer className="footer mt-24 p-10  max-w-6xl mx-auto   text-base-content">
+    <div className="bg-[var(--bg)] text-[var(--text)]">
+      <footer className="footer pt-24 p-10  max-w-6xl mx-auto">
         <aside>
           <img src={logo} alt="" />
           <p>

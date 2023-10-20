@@ -5,7 +5,19 @@ import "./Navbar.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Profile from "../Profile/Profile";
+
 const Navbar = () => {
+  const toggleTheme = () => {
+    const icon = document.getElementById("icon");
+
+    document.documentElement.classList.toggle("dark-mode");
+
+    if (document.documentElement.classList.contains("dark-mode")) {
+      icon.src = "/sun.png";
+    } else {
+      icon.src = "moon.png";
+    }
+  };
   const { user, logOut } = useContext(AuthContext);
   const [brands, setBrands] = useState([]);
   const brand = brands.map((data) => data.carBrand);
@@ -61,7 +73,7 @@ const Navbar = () => {
     <div
       className={`${
         scrolling || !isHome
-          ? "bg-white text-[#403f3f] shadow-md"
+          ? "bg-[var(--bg)] text-[var(--text)] shadow-md"
           : "bg-transparent text-white"
       } transition-all    duration-500 ease-in-out fixed w-full top-0 z-10  `}
     >
@@ -100,6 +112,13 @@ const Navbar = () => {
           <ul className="gap-10 menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end gap-2 md:gap-5">
+          <img
+            id="icon"
+            className="w-[30px] text-[var(--logo)]"
+            onClick={toggleTheme}
+            src="/moon.png"
+            alt=""
+          />
           {user ? (
             <details>
               <summary

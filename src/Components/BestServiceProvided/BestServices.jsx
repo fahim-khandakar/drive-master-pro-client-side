@@ -7,7 +7,7 @@ import { CgStyle } from "react-icons/cg";
 const BestServices = () => {
   return (
     <div>
-      <h1 className="text-2xl md:text-4xl border-b-2 w-1/2 mx-auto md:w-1/4 border-black font-bold mt-20 text-[#403f3f] font-serif text-center">
+      <h1 className="text-2xl md:text-4xl border-b-2 w-1/2 mx-auto md:w-1/4 border-[var(--text)] font-bold mt-20 text-[var(--text)] font-serif text-center">
         Our Services
       </h1>
 

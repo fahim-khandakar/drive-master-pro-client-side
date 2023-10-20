@@ -22,8 +22,8 @@ const CartList = ({ item, data, setData }) => {
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-0 mb-5">
       <div className="w-full  flex items-center gap-5  text-lg md:text-2xl font-semibold justify-center">
-        <div className=" w-[80px] md:w-[100px]">
-          <img className="rounded-md" src={photo} alt="" />
+        <div className=" w-[50px] h-[30px] md:h-auto md:w-[100px]">
+          <img className="rounded-md w-full h-full" src={photo} alt="" />
         </div>
         <h1>
           <span>Name:</span>

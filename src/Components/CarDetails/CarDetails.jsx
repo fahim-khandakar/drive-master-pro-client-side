@@ -36,15 +36,7 @@ const CarDetails = () => {
       swal("Sorry!", "You have already added this product", "error");
     }
   };
-  // fetch("https://drive-master-pro-server.vercel.app/cartList", {
-  //       method: "POST",
-  //       headers: {
-  //         "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify(loadedData),
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => console.log(data));
+
   return (
     <div className="max-w-6xl mx-auto px-5 md:px-0">
       <div>

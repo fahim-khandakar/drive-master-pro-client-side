@@ -5,7 +5,7 @@ import MobileApp from "../MobileApp/MobileApp";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-[var(--bg)] text-[var(--text)]">
       <Banner></Banner>
       <div className="mx-auto max-w-6xl px-5 md:px-0">
         <BrandsCard></BrandsCard>
