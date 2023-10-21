@@ -30,15 +30,15 @@ const CartList = ({ item, data, setData }) => {
           {name}
         </h1>
         <h1>
-          <span>Name:</span>
+          <span>Brand:</span>
           {brandName}
         </h1>
         <h1 className="hidden md:block">
-          <span>Name:</span>
+          <span>Type:</span>
           {productType}
         </h1>
         <h1 className="hidden md:block">
-          <span>Name:</span>
+          <span>Rating:</span>
           {rating}
         </h1>
         <h1 className="hidden md:block">
