@@ -8,7 +8,7 @@ const MyCart = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
   const [data, setData] = useState([]);
-  console.log(data);
+  data;
 
   useEffect(() => {
     fetch("https://drive-master-pro-server.vercel.app/cartList")
@@ -17,7 +17,7 @@ const MyCart = () => {
         const userData = data.filter((item) => item.email === email);
         setData(userData);
       });
-  }, []);
+  }, [email]);
 
   return (
     <div className="mt-28 max-w-6xl mx-auto px-5 md:px-0">

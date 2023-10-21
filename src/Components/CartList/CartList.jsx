@@ -3,7 +3,7 @@ import { ImCancelCircle } from "react-icons/im";
 const CartList = ({ item, data, setData }) => {
   const { _id, photo, name, brandName, productType, price, rating } = item;
   const handleDelete = (id) => {
-    console.log(id);
+    id;
     fetch(`https://drive-master-pro-server.vercel.app/cartList/${id}`, {
       method: "DELETE",
     })

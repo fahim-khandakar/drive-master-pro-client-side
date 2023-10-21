@@ -18,9 +18,7 @@ const CarDetails = () => {
   }, []);
 
   const handleAddCart = () => {
-    // const checkList = cartList.find((cart) => cart._id === loadedData._id);
-    // console.log(loadedData, checkList, cartList);
-    console.log(data);
+    data;
     let shouldContinue = true;
 
     if (cartList.length > 0) {
