@@ -6,7 +6,8 @@ const CarDetails = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
   const loadedData = useLoaderData();
-  const data = { ...loadedData, email };
+  const newId = loadedData._id + email;
+  const data = { ...loadedData, email, _id: newId };
   const [cartList, setCartList] = useState([]);
   const { photo, name, brandName, productType, price, description, rating } =
     loadedData;
@@ -17,8 +18,39 @@ const CarDetails = () => {
   }, []);
 
   const handleAddCart = () => {
-    const checkList = cartList.find((cart) => cart.email === loadedData.email);
-    if (!checkList) {
+    // const checkList = cartList.find((cart) => cart._id === loadedData._id);
+    // console.log(loadedData, checkList, cartList);
+    console.log(data);
+    let shouldContinue = true;
+
+    if (cartList.length > 0) {
+      for (let item of cartList) {
+        if (item._id === data._id && email === item.email) {
+          shouldContinue = false;
+          swal("Sorry!", "You have already added this product", "error");
+          break; // Exit the loop early
+        }
+      }
+
+      if (shouldContinue) {
+        fetch("https://drive-master-pro-server.vercel.app/cartList", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            if (!(response.InsertedId > 0)) {
+              // Corrected the condition here
+              swal("Great!", "Added this cart", "success");
+            } else {
+              swal("Sorry!", "Something went wrong", "error");
+            }
+          });
+      }
+    } else {
       fetch("https://drive-master-pro-server.vercel.app/cartList", {
         method: "POST",
         headers: {
@@ -27,15 +59,14 @@ const CarDetails = () => {
         body: JSON.stringify(data),
       })
         .then((res) => res.json())
-        .then((data) => {
-          if (!data.InsertedId > 0) {
+        .then((response) => {
+          if (!(response.InsertedId > 0)) {
+            // Corrected the condition here
             swal("Great!", "Added this cart", "success");
           } else {
-            swal("Sorry!", "You have already added this product", "error");
+            swal("Sorry!", "Something went wrong", "error");
           }
         });
-    } else {
-      swal("Sorry!", "You have already added this product", "error");
     }
   };
 
